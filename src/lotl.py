@@ -24,3 +24,6 @@ class lotl:
 
     def mean(self):
         return sum(self.data) / len(self.data)
+
+    def varint(self):
+        return b"".join([bytes([(b := (self.data >> 7 * i) & 0x7F) | (0x80 if self.data >> 7 * (i + 1) else 0)]) for i in range(5) if (self.data >> 7 * i)])
