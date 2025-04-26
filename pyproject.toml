@@ -3,12 +3,12 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "lotl"
-version = "0.0.2"
+name = "ninjalib"
+version = "0.0.1"
 authors = [
   { name="Invizabel" },
 ]
-description = "lotl is a data science library"
+description = "ninjalib is a data science library"
 readme = "README.md"
 license = { file="LICENSE.txt" }
 requires-python = ">=3.7"
@@ -22,5 +22,5 @@ dependencies = [
     ]
 
 [project.urls]
-"Homepage" = "https://github.com/Invizabel/lotl"
-"Bug Tracker" = "https://github.com/Invizabel/lotl/issues"
+"Homepage" = "https://github.com/Invizabel/ninjalib"
+"Bug Tracker" = "https://github.com/Invizabel/ninjalib/issues"

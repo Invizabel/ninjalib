@@ -1,7 +1,7 @@
-﻿# lotl is a data science library
+﻿# ninjalib is a data science library
 #
-# import lotl
-# new_data = lotl(data).flatten_list()
-# new_data = lotl(data).flatten_tuple()
-# new_data = lotl(data).mean()
-# new_data = lotl(data).varint()
+# import ninjalib
+# new_data = ninjalib(data).flatten_list()
+# new_data = ninjalib(data).flatten_tuple()
+# new_data = ninjalib(data).mean()
+# new_data = ninjalib(data).varint()
