@@ -28,12 +28,9 @@ class ninjalib:
         return new_data
 
     def project(self):
-        if self.c != 0:
-            screen_x = math.floor(self.data * (self.a / self.c))
-            screen_y = math.floor(self.data * (self.b / self.c))
-            return [screen_x, screen_y]
-        else:
-            return [0,0]
+        screen_x = math.floor(self.data * (self.a / self.c))
+        screen_y = math.floor(self.data * (self.b / self.c))
+        return [screen_x, screen_y]
 
     def rotate_camera(self):
         hits = []
@@ -53,11 +50,11 @@ class ninjalib:
             y = self.data[i][1] - cy
             z = self.data[i][2] - cz
             if self.a == "x":
-                hits.append([round(cx+x,3),round(cy+math.cos(theta)*y-math.sin(theta)*z,3),round(cz+math.sin(theta)*y+math.cos(theta)*z,3)])
+                hits.append([cx+x,cy+math.cos(theta)*y-math.sin(theta)*z,cz+math.sin(theta)*y+math.cos(theta)*z])
             if self.a == "y":
-                hits.append([round(cx+math.cos(theta)*x+math.sin(theta)*z,3),round(cy+y,3),round(cz+-math.sin(theta)*x+math.cos(theta)*z,3)])
+                hits.append([cx+math.cos(theta)*x+math.sin(theta)*z,cy+y,cz+-math.sin(theta)*x+math.cos(theta)*z])
             if self.a == "z":
-                hits.append([round(cx+math.cos(theta)*x-math.sin(theta)*y,3),round(cy+math.sin(theta)*x+math.cos(theta)*y),round(cz+z,3)])
+                hits.append([cx+math.cos(theta)*x-math.sin(theta)*y,cy+math.sin(theta)*x+math.cos(theta)*y,cz+z])
         return hits
 
     def varint(self):
