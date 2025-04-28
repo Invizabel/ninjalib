@@ -53,11 +53,11 @@ class ninjalib:
             y = self.data[i][1] - cy
             z = self.data[i][2] - cz
             if self.a == "x":
-                hits.append([cx+x,cy+math.cos(theta)*y-math.sin(theta)*z,cz+math.sin(theta)*y+math.cos(theta)*z])
+                hits.append([math.floor(cx+x),math.floor(cy+math.cos(theta)*y-math.sin(theta)*z),math.floor(cz+math.sin(theta)*y+math.cos(theta)*z)])
             if self.a == "y":
-                hits.append([cx+math.cos(theta)*x+math.sin(theta)*z,cy+y,cz+-math.sin(theta)*x+math.cos(theta)*z])
+                hits.append([math.floor(cx+math.cos(theta)*x+math.sin(theta)*z),math.floor(cy+y),math.floor(cz+-math.sin(theta)*x+math.cos(theta)*z)])
             if self.a == "z":
-                hits.append([cx+math.cos(theta)*x-math.sin(theta)*y,cy+math.sin(theta)*x+math.cos(theta)*y,cz+z])
+                hits.append([math.floor(cx+math.cos(theta)*x-math.sin(theta)*y),math.floor(cy+math.sin(theta)*x+math.cos(theta)*y),math.floor(cz+z)])
         return hits
 
     def varint(self):
