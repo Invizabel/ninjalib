@@ -28,8 +28,14 @@ class ninjalib:
         return new_data
 
     def project(self):
-        screen_x = math.floor(self.data * (self.a / self.c))
-        screen_y = math.floor(self.data * (self.b / self.c))
+        try:
+            screen_x = math.floor(self.data * (self.a / self.c))
+        except ZeroDivisionError:
+            screen_x = self.data + self.a
+        try:
+            screen_y = math.floor(self.data * (self.b / self.c))
+        except ZeroDivisionError:
+            screen_y = self.data + self.b
         return [screen_x, screen_y]
 
     def rotate_camera(self):
