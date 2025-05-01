@@ -63,5 +63,11 @@ class ninjalib:
                 hits.append([cx+math.cos(theta)*x-math.sin(theta)*y,cy+math.sin(theta)*x+math.cos(theta)*y,cz+z])
         return hits
 
+    def mean(self):
+        return sum(self.data) / len(self.data)
+
+    def ncaa_odds(self):
+        return str(round(sum(self.data) / (sum(self.data) + sum(self.a)) * 100,3)) + "%"
+
     def varint(self):
         return b"".join([bytes([(b := (self.data >> 7 * i) & 0x7F) | (0x80 if self.data >> 7 * (i + 1) else 0)]) for i in range(5) if (self.data >> 7 * i)])
