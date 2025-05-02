@@ -9,6 +9,17 @@ class ninjalib:
         self.b = b
         self.c = c
 
+    def anomaly(data):
+        hits = []
+        average = sum(self.data) / len(self.data)
+        deviate = statistics.stdev(self.data)
+        lower_bounds = average - deviate
+        upper_bounds = average + deviate
+        for i,value in enumerate(self.data):
+            if not lower_bounds <= value <= upper_bounds:
+                hits.append(value)
+        return hits
+
     def flatten_list(self):
         new_data = self.data
         while True:

@@ -1,13 +1,13 @@
 ﻿# ninjalib is a data science library
 # 
 # import ninjalib
+# ninja = ninjalib.ninjalib(data).anomaly()
 # ninja = ninjalib.ninjalib(data).flatten_list()
 # ninja = ninjalib.ninjalib(data).flatten_tuple()
-# ninja = ninjalib.ninjalib(focal_length,x,y,z).project()
-# ninja = ninjalib.ninjalib(data,axis,angle).rotate_camera()
+# ninja = ninjalib.ninjalib(data).render()
 # ninja = ninjalib.ninjalib(data,axis,angle).rotate_camera()
 # ninja = ninjalib.ninjalib(data).mean()
-# ninja = ninjalib.ninjalib(team_1,team_2).ncaa_odds()
+# ninja = ninjalib.ninjalib(team_1,team_2).odds()
 # ninja = ninjalib.ninjalib(data).varint()
 # 
 # Notes:
