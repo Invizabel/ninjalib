@@ -9,7 +9,7 @@ class ninjalib:
         self.b = b
         self.c = c
 
-    def anomaly(data):
+    def anomaly(self):
         hits = []
         average = sum(self.data) / len(self.data)
         deviate = statistics.stdev(self.data)
@@ -77,7 +77,7 @@ class ninjalib:
     def mean(self):
         return sum(self.data) / len(self.data)
 
-    def ncaa_odds(self):
+    def odds(self):
         return str(round(sum(self.data) / (sum(self.data) + sum(self.a)) * 100,3)) + "%"
 
     def varint(self):
