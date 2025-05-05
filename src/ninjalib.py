@@ -1,6 +1,8 @@
+import binascii
 import itertools
 import math
 import statistics
+import struct
 
 class ninjalib:
     def __init__(self,data,a=0,b=0,c=0):
@@ -93,7 +95,7 @@ class ninjalib:
     def status(self):
         if self.a == 0:
             self.a = -1
-        handshake = binascii.unhexlify("00") + b"".join([bytes([(b := (self.a >> 7 * i) & 0x7F) | (0x80 if self.a >> 7 * (i + 1) else 0)]) for i in range(5) if (self.a >> 7 * i)]) + struct.pack(">b",len(self.content[0])) + self.content[0].encode() + struct.pack(">H", self.content[1]) + b"\x01"
+        handshake = binascii.unhexlify("00") + b"".join([bytes([(b := (self.a >> 7 * i) & 0x7F) | (0x80 if self.a >> 7 * (i + 1) else 0)]) for i in range(5) if (self.a >> 7 * i)]) + struct.pack(">b",len(self.data[0])) + self.data[0].encode() + struct.pack(">H", self.data[1]) + b"\x01"
         return [struct.pack(">b",len(handshake)) + handshake, binascii.unhexlify("0100")]
 
     def varint(self):
