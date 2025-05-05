@@ -22,20 +22,30 @@ class ninjalib:
 
     def flatten_list(self):
         new_data = self.data
-        while True:
-            if isinstance(new_data[0],list):
-                new_data = list(itertools.chain(*new_data))
-            else:
-                break
+        if self.x == 0:
+            while True:
+                if isinstance(new_data[0],list) or isinstance(new_data[0],tuple):
+                    new_data = list(itertools.chain(*new_data))
+                else:
+                    break
+        else:
+            for i in range(self.x):
+                if isinstance(new_data[0],list) or isinstance(new_data[0],tuple):
+                    new_data = list(itertools.chain(*new_data))
         return new_data
 
     def flatten_tuple(self):
         new_data = self.data
-        while True:
-            if isinstance(new_data[0],tuple):
-                new_data = tuple(itertools.chain(*new_data))
-            else:
-                break
+        if self.x == 0:
+            while True:
+                if isinstance(new_data[0],list) or isinstance(new_data[0],tuple):
+                    new_data = tuple(itertools.chain(*new_data))
+                else:
+                    break
+        else:
+            for i in range(self.x):
+                if isinstance(new_data[0],list) or isinstance(new_data[0],tuple):
+                    new_data = tuple(itertools.chain(*new_data))
         return new_data
 
     def project(self):
