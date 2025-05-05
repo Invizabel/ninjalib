@@ -22,28 +22,28 @@ class ninjalib:
 
     def flatten_list(self):
         new_data = self.data
-        if self.x == 0:
+        if self.a == 0:
             while True:
                 if isinstance(new_data[0],list) or isinstance(new_data[0],tuple):
                     new_data = list(itertools.chain(*new_data))
                 else:
                     break
         else:
-            for i in range(self.x):
+            for i in range(self.a):
                 if isinstance(new_data[0],list) or isinstance(new_data[0],tuple):
                     new_data = list(itertools.chain(*new_data))
         return new_data
 
     def flatten_tuple(self):
         new_data = self.data
-        if self.x == 0:
+        if self.a == 0:
             while True:
                 if isinstance(new_data[0],list) or isinstance(new_data[0],tuple):
                     new_data = tuple(itertools.chain(*new_data))
                 else:
                     break
         else:
-            for i in range(self.x):
+            for i in range(self.aF):
                 if isinstance(new_data[0],list) or isinstance(new_data[0],tuple):
                     new_data = tuple(itertools.chain(*new_data))
         return new_data
@@ -89,6 +89,12 @@ class ninjalib:
 
     def odds(self):
         return str(round(sum(self.data) / (sum(self.data) + sum(self.a)) * 100,3)) + "%"
+
+    def status(self):
+        if self.a == 0:
+            self.a = -1
+        handshake = binascii.unhexlify("00") + b"".join([bytes([(b := (self.a >> 7 * i) & 0x7F) | (0x80 if self.a >> 7 * (i + 1) else 0)]) for i in range(5) if (self.a >> 7 * i)]) + struct.pack(">b",len(self.content[0])) + self.content[0].encode() + struct.pack(">H", self.content[1]) + b"\x01"
+        return [struct.pack(">b",len(handshake)) + handshake, binascii.unhexlify("0100")]
 
     def varint(self):
         return b"".join([bytes([(b := (self.data >> 7 * i) & 0x7F) | (0x80 if self.data >> 7 * (i + 1) else 0)]) for i in range(5) if (self.data >> 7 * i)])
