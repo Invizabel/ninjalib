@@ -81,7 +81,7 @@ class ninjalib:
             if self.a == "x":
                 hits.append([round(cx+x,3),round(cy+math.cos(theta)*y-math.sin(theta)*z,3),round(cz+math.sin(theta)*y+math.cos(theta)*z,3)])
             if self.a == "y":
-                hits.append([round(cx+math.cos(theta)*x+math.sin(theta)*z,cy+y,3),round(cz+-math.sin(theta)*x+math.cos(theta)*z,3)])
+                hits.append([round(cx+math.cos(theta)*x+math.sin(theta)*z,3),round(cy+y,3),round(cz+-math.sin(theta)*x+math.cos(theta)*z,3)])
             if self.a == "z":
                 hits.append([round(cx+math.cos(theta)*x-math.sin(theta)*y,3),round(cy+math.sin(theta)*x+math.cos(theta)*y,3),round(cz+z,3)])
         return hits
