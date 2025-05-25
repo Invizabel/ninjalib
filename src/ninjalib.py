@@ -13,13 +13,16 @@ class ninjalib:
 
     def anomaly(self):
         hits = []
-        average = sum(self.data) / len(self.data)
-        deviate = statistics.stdev(self.data)
-        lower_bounds = average - deviate
-        upper_bounds = average + deviate
-        for i,value in enumerate(self.data):
-            if not lower_bounds <= value <= upper_bounds:
-                hits.append(value)
+        distances = []
+        self.data.sort()
+        for key,value in enumerate(self.data):
+            if key < len(self.data) - 1:
+                distances.append(abs(self.data[key]-self.data[key+1]))
+        average = sum(distances) / len(distances)
+        for key,value in enumerate(self.data):
+            if key < len(self.data) - 1:
+                if average < abs(self.data[key+1] - self.data[key]) and average < abs(self.data[key] - self.data[key-1]):
+                    hits.append(self.data[key])
         return hits
 
     def flatten_list(self):
