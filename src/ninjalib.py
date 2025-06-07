@@ -32,6 +32,7 @@ class ninjalib:
 
     def combo(self):
         hits = []
+        self.data = list(dict.fromkeys(self.data[:]))
         for i in range(len(self.data)):
             for j in range(len(self.data)):
                 hits.append([self.data[i],self.data[j]])
