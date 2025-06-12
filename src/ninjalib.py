@@ -1,33 +1,31 @@
 import itertools
 
 class ninjalib:
-    def __init__(self,data,a=0,b=0,c=0):
+    def __init__(self,data,a=-1,b=-1,c=-1):
         self.data = data
         self.a = a
         self.b = b
         self.c = c
 
-    def combo(self):
-        hits = []
-        self.data = list(dict.fromkeys(self.data[:]))
-        self.data.sort()
-        for i in range(len(self.data)):
-            for j in range(len(self.data)):
-                hits.append([self.data[i],self.data[j]])
-        return hits
-
-    def diff(self):
-        combos = ninjalib(self.data).combo()
-        distances = []
-        for i in combos:
-            if abs(i[0]-i[1]) > 0:
-                distances.append((abs(i[0]-i[1]),i))
-        distances.sort()
-        return distances
-
+    def center(self):
+        if isinstance(self.data[0],float) or isinstance(self.data[0],int):
+            x = (min(self.data) + max(self.data)) / 2
+            return x
+        if len(self.data[0]) == 2:
+            x = (min([i[0] for i in self.data]) + max([i[0] for i in self.data])) / 2
+            y = (min([i[1] for i in self.data]) + max([i[1] for i in self.data])) / 2
+            return x,y
+        elif len(self.data[0]) == 3:
+            x = (min([i[0] for i in self.data]) + max([i[0] for i in self.data])) / 2
+            y = (min([i[1] for i in self.data]) + max([i[1] for i in self.data])) / 2
+            z = (min([i[2] for i in self.data]) + max([i[2] for i in self.data])) / 2
+            return x,y,z
+        else:
+            return None
+            
     def flatten(self):
         new_data = self.data
-        if self.a == 0:
+        if self.a == -1:
             while True:
                 if isinstance(new_data[0],list) or isinstance(new_data[0],tuple):
                     new_data = list(itertools.chain(*new_data))
