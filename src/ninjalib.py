@@ -8,9 +8,6 @@ class ninjalib:
         self.c = c
 
     def center(self):
-        if isinstance(self.data[0],float) or isinstance(self.data[0],int):
-            x = (min(self.data) + max(self.data)) / 2
-            return x
         if len(self.data[0]) == 2:
             x = (min([i[0] for i in self.data]) + max([i[0] for i in self.data])) / 2
             y = (min([i[1] for i in self.data]) + max([i[1] for i in self.data])) / 2
@@ -21,7 +18,8 @@ class ninjalib:
             z = (min([i[2] for i in self.data]) + max([i[2] for i in self.data])) / 2
             return x,y,z
         else:
-            return None
+            x = (min(self.data) + max(self.data)) / 2
+            return x
             
     def flatten(self):
         new_data = self.data
