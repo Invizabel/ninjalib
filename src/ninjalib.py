@@ -1,4 +1,5 @@
 import itertools
+import math
 
 class ninjalib:
     def __init__(self,data,a=-1,b=-1,c=-1):
@@ -37,3 +38,12 @@ class ninjalib:
 
     def mean(self):
         return sum(self.data) / len(self.data)
+
+    def project(self):
+        if self.c != 0:
+            screen_x = math.floor(self.data * (self.a / self.c))
+            screen_y = math.floor(self.data * (self.b / self.c))
+        else:
+            screen_x = self.data + self.a
+            screen_y = self.data + self.b
+        return [screen_x,screen_y]
