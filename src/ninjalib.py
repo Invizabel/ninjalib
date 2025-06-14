@@ -36,6 +36,9 @@ class ninjalib:
                     new_data = list(itertools.chain(*new_data))
         return new_data
 
+    def gravity(self):
+        return f"{0.266955e-12 * (self.data / self.a ** 2)} m/s"
+
     def mean(self):
         return sum(self.data) / len(self.data)
 
